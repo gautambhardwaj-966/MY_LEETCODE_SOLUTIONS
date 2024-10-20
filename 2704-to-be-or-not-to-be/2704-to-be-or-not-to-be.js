@@ -3,26 +3,26 @@
  * @return {Object}
  */
 var expect = function(val) {
-   return {
-       toBe:function(val1){
-       if(val===val1){
-       return true
-       }
-    else{
-        throw new Error("Not Equal");
-    }
-   },
-
-notToBe:function(val1){
-   if(val!==val1) {
-       return true;
-   }
-    else{
-        throw new Error("Equal");
-    }
-}
-   } 
-};
+    return {
+        toBe:function(compareVal){
+            if(val===compareVal){
+                return true;
+            }
+                else{
+                    throw new Error("Not Equal")
+                }
+            },
+        
+        notToBe:function(compareVal){
+            if(val!==compareVal){
+                return true;
+            }
+                else{
+                    throw new Error("Equal")
+                }
+            }
+        }
+    };
 
 /**
  * expect(5).toBe(5); // true
