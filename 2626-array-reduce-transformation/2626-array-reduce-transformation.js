@@ -5,14 +5,9 @@
  * @return {number}
  */
 var reduce = function(nums, fn, init) {
-    let accumulator = init;
-    
-    
-    for (let i = 0; i < nums.length; i++) {
-        
-        accumulator = fn(accumulator, nums[i]);
+    let val =init;
+    for(let i=0;i<nums.length;i++){
+        val = fn(val,nums[i]);
     }
-    
-
-    return accumulator;
+    return val;
 };
