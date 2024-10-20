@@ -4,7 +4,7 @@
 var createHelloWorld = function() {
     
     return function(...args) {
-       return "Hello World";
+       return "Hello World" 
     }
 };
 
@@ -12,3 +12,4 @@ var createHelloWorld = function() {
  * const f = createHelloWorld();
  * f(); // "Hello World"
  */
+
