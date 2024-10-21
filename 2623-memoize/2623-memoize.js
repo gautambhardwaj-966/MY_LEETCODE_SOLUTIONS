@@ -2,26 +2,26 @@
  * @param {Function} fn
  * @return {Function}
  */
-// function memoize(fn) {
-    
-//     return function(...args) {
-        
-//     }
-// }
-
-
-
 function memoize(fn) {
-    var dit = {};
-    return function(...args) {
-        if( args in dit ) {
-            return dit[args];
-        } else {
-            dit[args] = fn(...args);
-            return dit[args];
-        }
+  const cache = new Map(); // To store results
+  let callCount = 0; // To track the number of times fn is actually called
+
+  return function(...args) {
+    const key = JSON.stringify(args); // Serialize arguments as key for cache
+
+    // If the result for these arguments is in the cache, return it
+    if (cache.has(key)) {
+      return cache.get(key);
     }
+
+    // Otherwise, call the function and store the result in cache
+    callCount++;
+    const result = fn(...args);
+    cache.set(key, result); // Cache the result
+    return result;
+  };
 }
+
 
 /** 
  * let callCount = 0;
